@@ -1,0 +1,247 @@
+* {
+	border: 0;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+:root {
+	--hue: 223;
+	--l1: hsl(var(--hue),10%,100%);
+	--l2: hsl(var(--hue),10%,95%);
+	--l3: hsl(var(--hue),10%,90%);
+	--l4: hsl(var(--hue),10%,85%);
+	--l5: hsl(var(--hue),10%,80%);
+	--l6: hsl(var(--hue),10%,75%);
+	--l7: hsl(var(--hue),10%,70%);
+	--l8: hsl(var(--hue),10%,65%);
+	--text: hsl(var(--hue),10%,20%);
+	--r: hsl(3,90%,35%);
+	font-size: calc(16px + (24 - 16) * (100vw - 320px) / (1280 - 320));
+}
+body, 
+.phone__btn {
+	color: var(--text);
+	font: 1em/1.5 Nunito, sans-serif;
+}
+body {
+	background: var(--l5);
+	display: grid;
+	place-items: center;
+	height: 100vh;
+}
+.phone {
+	background: var(--l3);
+	border-radius: 0.5em;
+	box-shadow: 0.5em 0.5em 1em hsla(0,0%,0%,0.3);
+	padding: 0.5em;
+	position: relative;
+	width: 8em;
+	height: 32em;
+}
+.phone__antenna, 
+.phone__antenna:before, 
+.phone__antenna:after, 
+.phone__lock,
+.phone__battery,
+.phone__battery:before,
+.phone__screen-gloss, 
+.phone__screen-input {
+	position: absolute;
+}
+.phone__antenna {
+	filter: drop-shadow(0.5em 0.5em 1em hsla(0,0%,0%,0.3));
+	right: 1em;
+	bottom: 100%;
+	width: 1.5em;
+	height: 10em;
+	z-index: -1;
+}
+.phone__antenna:before, 
+.phone__antenna:after {
+	background: linear-gradient(90deg,hsl(var(--hue),10%,25%),hsl(var(--hue),10%,15%)) 50% 0 / 1.5em 100%;
+	content: "";
+	display: block;
+	height: 6em;
+}
+.phone__antenna:before {
+	border-radius: 0.5em 0.5em 0 0;
+	top: 0;
+	left: 0.25em;
+	width: 1em;
+}
+.phone__antenna:after {
+	border-radius: 0.75em 0.75em 0 0 / 3em 3em 0 0;
+	top: 4em;
+	left: 0;
+	width: 1.5em;
+}
+.phone__wrapper {
+	background:
+		linear-gradient(var(--l3) 6.75em,var(--l6) 7.25em 15.15em,var(--l3) 15.65em 26.75em,var(--l1) 27.35em 27.65em,var(--l3) 28.25em);
+	border-radius: 0.25em;
+	box-shadow:
+		0.25em 0.25em 0.25em var(--l6),
+		-0.25em -0.25em 0.25em var(--l1);
+	padding: 0.5em;
+	width: 7em;
+	height: 31em;
+}
+.phone__speaker {
+	background:
+		radial-gradient(0.4em 0.4em at 35% 50%,hsl(var(--hue),10%,10%) 45%,hsla(223,10%,10%,0) 50%),
+		radial-gradient(0.4em 0.4em at 50% 50%,hsl(var(--hue),10%,10%) 45%,hsla(223,10%,10%,0) 50%),
+		radial-gradient(0.4em 0.4em at 65% 50%,hsl(var(--hue),10%,10%) 45%,hsla(223,10%,10%,0) 50%);
+	border-radius: 1em;
+	box-shadow:
+		0.4em 0.4em 0.25em var(--l6) inset,
+		-0.4em -0.4em 0.25em var(--l1) inset;
+	margin-bottom: 0.75em;
+	height: 6em;
+}
+.phone__hide {
+	display: none;
+}
+.phone__lock, .phone__battery {
+	top: 0.75rem;
+}
+.phone__lock {
+	font-size: 0.5em;
+	line-height: 1;
+	left: 1rem;
+}
+.phone__battery {
+	--health: 70%;
+	background: linear-gradient(90deg,currentColor var(--health),#0000 calc(100% - var(--health))) 2px 50% / calc(100% - 4px) calc(100% - 4px) no-repeat;
+	border-radius: 0.1em;
+	box-shadow:
+		0 0 0 1px inset,
+		0 0 0.1em 1px hsla(180,90%,55%,0.7) inset,
+		0 0 0.1em hsla(180,90%,55%,0.7);
+	right: 1em;
+	margin-right: 0.1em;
+	width: 1em;
+	height: 0.5em;
+}
+.phone__battery:before {
+	background: currentColor;
+	border-radius: 0 100% 100% 0 / 0 50% 50% 0;
+	content: "";
+	display: block;
+	top: 0.1em;
+	left: 1.1em;
+	width: 0.1em;
+	height: 0.3em;
+}
+.phone__screen, 
+.phone__btn-group--3x4 {
+	margin-bottom: 1em;
+}
+.phone__screen, 
+.phone__screen-gloss {
+	border-radius: 0.25em;
+}
+.phone__screen, 
+.phone__screen-input {
+	color: hsl(180,90%,55%);
+	text-shadow: 0 0 0.25em hsla(180,90%,55%,0.7);
+	text-transform: uppercase;
+}
+.phone__screen {
+	background: hsl(var(--hue),10%,20%);
+	box-shadow: 0 0 0 0.5em hsl(var(--hue),10%,10%) inset;
+	position: relative;
+	height: 7.75em;
+}
+.phone__screen-gloss {
+	background: linear-gradient(30deg,hsla(223,10%,100%,0) 49%,hsla(223,10%,100%,0.05) 51%);
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+.phone__screen-input {
+	background: transparent;
+	font: 1em/1 "Ubuntu Mono", monospace;
+	top: 2.25em;
+	left: 50%;
+	padding: 0;
+	resize: none;
+	width: 8ch;
+	height: calc(100% - 4.5em);
+	transform: translateX(-50%);
+}
+.phone__btn-group {
+	display: grid;
+	grid-template-columns: repeat(3,1fr);
+	grid-gap: 0.5em;
+	align-content: start;
+}
+.phone__btn-group--3x3 {
+	grid-template-rows: repeat(3,1em);
+	margin-bottom: 0.25em;
+}
+.phone__btn-group--3x3 .phone__btn:last-child {
+	grid-column: 3;
+}
+.phone__btn-group--3x4 {
+	grid-template-rows: repeat(4,1em);
+}
+.phone__btn {
+	background: linear-gradient(145deg,var(--l2),var(--l4));
+	border-radius: 0.15em;
+	box-shadow:
+		0.15em 0.15em 0.3em var(--l7),
+		-0.15em -0.15em 0.3em var(--l1);
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	-webkit-tap-highlight-color: transparent;
+}
+.phone__btn:active {
+	background: linear-gradient(145deg,var(--l4),var(--l2));
+}
+.phone__btn--l-align {
+	justify-content: flex-start;
+}
+.phone__btn-txt {
+	display: flex;
+	font-size: 0.75em;
+	pointer-events: none;
+}
+.phone__btn-txt--sm {
+	font-size: 0.5em;
+	margin-top: 0.125rem;
+}
+.phone__btn-txt--red {
+	color: var(--r);
+}
+.phone__bottom {
+	padding-top: 2.5em;
+	height: 3.75em;
+}
+.phone__bottom-hole {
+	background: hsl(var(--hue),10%,10%);
+	box-shadow:
+		0.1em 0.1em 0.1em var(--l3) inset,
+		-0.1em -0.1em 0.1em var(--l1) inset;
+	margin: auto;
+	width: 1.5em;
+	height: 0.75em;
+}
+
+/* Dark theme */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --l1: hsl(var(--hue),10%,50%);
+    --l2: hsl(var(--hue),10%,45%);
+    --l3: hsl(var(--hue),10%,40%);
+    --l4: hsl(var(--hue),10%,35%);
+    --l5: hsl(var(--hue),10%,30%);
+    --l6: hsl(var(--hue),10%,25%);
+    --l7: hsl(var(--hue),10%,20%);
+    --l8: hsl(var(--hue),10%,15%);
+    --text: hsl(var(--hue),10%,80%);
+	--r: hsl(3,90%,70%);
+  }
+}
